@@ -12,3 +12,17 @@ const people = [
   "MIChaEl",
   "jeNNIFeR",
 ];
+
+function refactoName(string) {
+  const lowerCaseName = string.toLowerCase();
+  const capitalizeName =
+    lowerCaseName.charAt(0).toUpperCase() + lowerCaseName.slice(1);
+  return capitalizeName;
+}
+
+function refactoPeople(array, callback) {
+  array = array.map((name) => callback(name));
+  return array;
+}
+
+console.log(refactoPeople(people, refactoName));
